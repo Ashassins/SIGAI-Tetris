@@ -1,4 +1,9 @@
+import random
 class piece:
+
+    x = 0
+    y = 0
+
     Tpieces = [[[0, 1, 0, 0], 
               [1, 1, 1, 0], 
               [0, 0, 0, 0], 
@@ -18,3 +23,15 @@ class piece:
                 [1, 1, 0, 0], 
                 [0, 1, 0, 0]
                 [0, 0, 0, 0]]
+    
+    squarePiece = [[1, 1, 0, 0], 
+                   [1, 1, 0, 0], 
+                   [0, 0, 0, 0], 
+                   [0, 0, 0, 0]]
+
+    
+    def __init__ (self, x, y):
+        self.x = x
+        self.y = y
+
+        
