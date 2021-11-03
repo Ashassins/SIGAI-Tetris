@@ -1,25 +1,21 @@
 import pygame
 import random
 
-class playTetris:
+pygame.init()
 
-    level = 2
-    score = 0
-    state = "start"
-    field = []
-    height = 0
-    width = 0
-    x = 100
-    y = 60
-    zoom = 20
-    figure = None
+# Define some colors
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+GRAY = (128, 128, 128)
 
-    def __init__(self, height, width):
-        self.height = height
-        self.width = width
-        self.field = []
-        self.score = 0
-        self.state = "start"
+size = (400, 500)
+screen = pygame.display.set_mode(size)
 
-    #def new_figure(self):
-        #self.figure = Figure(3, 0)
+# Loop until the user clicks the close button.
+done = False
+clock = pygame.time.Clock()
+fps = 25
+game = Tetris(20, 10)
+counter = 0
+
+pressing_down = False
