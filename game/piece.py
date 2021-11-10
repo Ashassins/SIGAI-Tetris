@@ -184,9 +184,36 @@ class longPiece(Piece):
     def __init__ (self, x, y):
         self.x = x
         self.y = y
-        self.shape = [[2, 2, 0, 0], 
-            [2, 2, 0, 0], 
-            [0, 0, 0, 0], 
-            [0, 0, 0, 0]]
+        self.shape = [[3, 0, 0, 0],
+             [3, 0, 0, 0],
+             [3, 0, 0, 0],
+             [3, 0, 0, 0]]
+        self.color = [0, 255, 0]
+        self.rotation = 0
+
+class reverseSPiece(Piece):
+
+    x = 0
+    y = 0
+
+    shape = [[[4, 4, 0, 0],
+              [0, 4, 4, 0],
+              [0, 0, 0, 0],
+              [0, 0, 0, 0]],
+               
+             [[0, 4, 0, 0],
+              [4, 4, 0, 0],
+              [4, 0, 0, 0],
+              [0, 0, 0, 0]]]
+
+    color = [0, 255, 0]
+
+    def __init__ (self, x, y):
+        self.x = x
+        self.y = y
+        self.shape = [[4, 4, 0, 0],
+              [0, 4, 4, 0],
+              [0, 0, 0, 0],
+              [0, 0, 0, 0]]
         self.color = [0, 255, 0]
         self.rotation = 0
