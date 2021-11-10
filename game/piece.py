@@ -1,5 +1,6 @@
 import random
 
+
 class Piece:
 
     x = 0
@@ -13,6 +14,7 @@ class Piece:
         self.x = x
         self.y = y
         self.rotatoin = 0
+
 
 class squarePiece(Piece):
 
@@ -35,6 +37,7 @@ class squarePiece(Piece):
             [0, 0, 0, 0]]
         self.color = [255, 211, 0]
         self.rotation = 0
+
 
 class TPiece(Piece):
 
@@ -73,6 +76,7 @@ class TPiece(Piece):
         self.color = (120, 22, 139) # RGB Code for purple shade
         self.rotation = 0
 
+
 class longPiece(Piece):
 
     x = 0
@@ -100,6 +104,7 @@ class longPiece(Piece):
         self.color = [0, 255, 0]
         self.rotation = 0
 
+
 class reverseSPiece(Piece):
 
     x = 0
@@ -126,7 +131,8 @@ class reverseSPiece(Piece):
               [0, 0, 0, 0]]
         self.color = [0, 255, 0]
         self.rotation = 0
-        
+
+
 class SPiece(Piece):
 
     x = 0
@@ -153,6 +159,7 @@ class SPiece(Piece):
                [0, 0, 0, 0]]
         self.color = [0, 255, 0]
         self.rotation = 0
+
 
 class reverseLPiece(Piece):
 
@@ -188,5 +195,40 @@ class reverseLPiece(Piece):
               [0, 6, 0, 0],
               [6, 6, 0, 0],
               [0, 0, 0, 0]]
+        self.color = [0, 255, 0]
+        self.rotation = 0
+
+
+    class lPiece(Piece):
+
+        x = 0
+        y = 0
+
+        shape = [[[7, 0, 0, 0],
+               [7, 0, 0, 0],
+               [7, 7, 0, 0],
+               [0, 0, 0, 0]],
+               
+              [[7, 7, 7, 0],
+               [7, 0, 0, 0],
+               [0, 0, 0, 0],
+               [0, 0, 0, 0]],
+               
+              [[7, 7, 0, 0],
+               [0, 7, 0, 0],
+               [0, 7, 0, 0],
+               [0, 7, 0, 0]],
+               
+              [[0, 0, 7, 0],
+               [7, 7, 7, 0],
+               [0, 0, 0, 0],
+               [0, 0, 0, 0]]]
+
+    def __init__(self, x, y):
+        super().__init__(x, y)
+        self.shape = [[7, 0, 0, 0],
+               [7, 0, 0, 0],
+               [7, 7, 0, 0],
+               [0, 0, 0, 0]]
         self.color = [0, 255, 0]
         self.rotation = 0
