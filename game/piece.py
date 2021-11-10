@@ -1,3 +1,4 @@
+
 import random
 
 class Piece:
@@ -217,16 +218,70 @@ class reverseSPiece(Piece):
               [0, 0, 0, 0]]
         self.color = [0, 255, 0]
         self.rotation = 0
+        
+class SPiece(Piece):
 
+    x = 0
+    y = 0
 
+    shape = [[[0, 5, 5, 0],
+               [5, 5, 0, 0],
+               [0, 0, 0, 0],
+               [0, 0, 0, 0]],
+               
+              [[5, 0, 0, 0],
+               [5, 5, 0, 0],
+               [0, 5, 0, 0],
+               [0, 0, 0, 0]]]
 
+    color = [0, 255, 0]
 
+    def __init__ (self, x, y):
+        self.x = x
+        self.y = y
+        self.shape = [[0, 5, 5, 0],
+               [5, 5, 0, 0],
+               [0, 0, 0, 0],
+               [0, 0, 0, 0]]
+        self.color = [0, 255, 0]
+        self.rotation = 0
 
+class reverseLPiece(Piece):
 
+    x = 0
+    y = 0
 
+    shape = [[[0, 6, 0, 0],
+              [0, 6, 0, 0],
+              [6, 6, 0, 0],
+              [0, 0, 0, 0]],
+                    
+             [[6, 0, 0, 0],
+              [6, 6, 6, 0],
+              [0, 0, 0, 0],
+              [0, 0, 0, 0]],
+                       
+             [[6, 6, 0, 0],
+              [6, 0, 0, 0],
+              [6, 0, 0, 0],
+              [0, 0, 0, 0]],
+                      
+             [[6, 6, 6, 0],
+              [0, 0, 6, 0],
+              [0, 0, 0, 0],
+              [0, 0, 0, 0]]]
 
+    color = [0, 255, 0]
 
-
+    def __init__ (self, x, y):
+        self.x = x
+        self.y = y
+        self.shape = [[0, 6, 0, 0],
+              [0, 6, 0, 0],
+              [6, 6, 0, 0],
+              [0, 0, 0, 0]]
+        self.color = [0, 255, 0]
+        self.rotation = 0
 
     class lPiece(Piece):
 
@@ -253,7 +308,6 @@ class reverseSPiece(Piece):
                [0, 0, 0, 0],
                [0, 0, 0, 0]]]
 
-    color = [0, 255, 0]
 
     def __init__(self, x, y):
         super().__init__(x, y)
