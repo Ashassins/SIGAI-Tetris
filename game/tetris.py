@@ -65,7 +65,7 @@ class Tetris:
         self.break_lines()
         self.new_figure()
         # timer to check place + gameover
-        if self.intersects():
+        if self.checkIntersection():
             self.state = "gameover"
 
     def break_lines(self):
