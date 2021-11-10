@@ -72,7 +72,7 @@ class Piece:
         self.x = x
         self.y = y
 
-class squarePiece:
+class squarePiece(Piece):
 
     x = 0
     y = 0
@@ -92,22 +92,14 @@ class squarePiece:
             [0, 0, 0, 0], 
             [0, 0, 0, 0]]
         self.color = [255, 211, 0]
-        self.rotation
-
-class TPiece(Piece):
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        self.shape = 
-            [[0, 1, 0, 0], 
-            [1, 1, 1, 0], 
-            [0, 0, 0, 0], 
-            [0, 0, 0, 0]
-        self.color = (120, 22, 139) # RGB Code for purple shade
         self.rotation = 0
 
-    TPieceMatrix = 
-            [[[0, 1, 0, 0], 
+class TPiece(Piece):
+
+    x = 0
+    y = 0
+    
+    shape = [[[0, 1, 0, 0], 
             [1, 1, 1, 0], 
             [0, 0, 0, 0], 
             [0, 0, 0, 0]], 
@@ -126,3 +118,42 @@ class TPiece(Piece):
             [1, 1, 0, 0], 
             [0, 1, 0, 0],
             [0, 0, 0, 0]]]
+    
+    color = [120, 22, 139]
+
+    def __init__ (self, x, y):
+        self.x = x
+        self.y = y
+        self.shape = [[0, 1, 0, 0], 
+            [1, 1, 1, 0], 
+            [0, 0, 0, 0], 
+            [0, 0, 0, 0]]
+        self.color = [120, 22, 139] # RGB Code for purple shade
+        self.rotation = 0
+
+class longPiece(Piece):
+
+    x = 0
+    y = 0
+
+    shape = [[[3, 0, 0, 0],
+             [3, 0, 0, 0],
+             [3, 0, 0, 0],
+             [3, 0, 0, 0]],
+                  
+            [[3, 3, 3, 3],
+             [0, 0, 0, 0],
+             [0, 0, 0, 0],
+             [0, 0, 0, 0]]]
+
+    color = [0, 255, 0]
+
+    def __init__ (self, x, y):
+        self.x = x
+        self.y = y
+        self.shape = [[2, 2, 0, 0], 
+            [2, 2, 0, 0], 
+            [0, 0, 0, 0], 
+            [0, 0, 0, 0]]
+        self.color = [0, 255, 0]
+        self.rotation = 0
