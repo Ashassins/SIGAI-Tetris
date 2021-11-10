@@ -84,8 +84,11 @@ class squarePiece:
 
     color = [255, 211, 0]
 
-    def __init__ (self, x, y, shape, color):
+    def __init__ (self, x, y):
         self.x = x
         self.y = y
-        self.shape = shape
-        self.color = color
+        self.shape = [[2, 2, 0, 0], 
+            [2, 2, 0, 0], 
+            [0, 0, 0, 0], 
+            [0, 0, 0, 0]]
+        self.color = [255, 211, 0]
