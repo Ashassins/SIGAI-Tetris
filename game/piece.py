@@ -72,4 +72,20 @@ class piece:
         self.x = x
         self.y = y
 
-        
+class squarePiece:
+
+    x = 0
+    y = 0
+
+    shape = [[2, 2, 0, 0], 
+            [2, 2, 0, 0], 
+            [0, 0, 0, 0], 
+            [0, 0, 0, 0]]
+
+    color = [255, 211, 0]
+
+    def __init__ (self, x, y, shape, color):
+        self.x = x
+        self.y = y
+        self.shape = shape
+        self.color = color
