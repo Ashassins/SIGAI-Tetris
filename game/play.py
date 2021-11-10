@@ -1,6 +1,7 @@
 import pygame
 import random
 import tetris
+import piece
 
 pygame.init()
 
@@ -29,6 +30,22 @@ while (not done):
         if game.state == "start":
             game.go_down()
 
-            
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP:
+                game.rotate()
+            if event.key == pygame.K_DOWN:
+                pressing_down = True
+            if event.key == pygame.K_LEFT:
+                game.go_side(-1)
+            if event.key == pygame.K_RIGHT:
+                game.go_side(1)
+            if event.key == pygame.K_SPACE:
+                game.go_space()
+            if event.key == pygame.K_ESCAPE:
+                game.__init__(20, 10)
+
 
 pygame.quit()
