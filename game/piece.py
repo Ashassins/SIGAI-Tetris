@@ -4,7 +4,6 @@ import random
 class Piece:
     x = 0
     y = 0
-
     rotation = 0
     
     def __init__ (self, x, y):
@@ -32,7 +31,6 @@ class squarePiece(Piece):
             [0, 0, 0, 0]]
         self.color = [255, 211, 0]
         self.rotation = 0
-
 
 class TPiece(Piece):  
     shape = [[[0, 1, 0, 0], 
@@ -67,7 +65,6 @@ class TPiece(Piece):
         self.color = (120, 22, 139) # RGB Code for purple shade
         self.rotation = 0
 
-
 class longPiece(Piece):
     shape = [[[3, 0, 0, 0],
             [3, 0, 0, 0],
@@ -90,7 +87,6 @@ class longPiece(Piece):
             [3, 0, 0, 0]]
         self.color = [0, 255, 0]
         self.rotation = 0
-
 
 class reverseSPiece(Piece):
     shape = [[[4, 4, 0, 0],
@@ -115,7 +111,6 @@ class reverseSPiece(Piece):
         self.color = [0, 255, 0]
         self.rotation = 0
 
-
 class SPiece(Piece):
     shape = [[[0, 5, 5, 0],
             [5, 5, 0, 0],
@@ -138,7 +133,6 @@ class SPiece(Piece):
             [0, 0, 0, 0]]
         self.color = [0, 255, 0]
         self.rotation = 0
-
 
 class reverseLPiece(Piece):
     shape = [[[0, 6, 0, 0],
