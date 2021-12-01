@@ -4,7 +4,7 @@ class Piece:
     x = 0
     y = 0
     rotation = 0
-    pieceType = null
+    pieceType = None
 
     def __init__ (self, x, y):
         self.x = x
