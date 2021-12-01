@@ -4,7 +4,7 @@ class Piece:
     x = 0
     y = 0
     rotation = 0
-    pieceType = None
+    pieceType = null
 
     def __init__ (self, x, y):
         self.x = x
@@ -21,7 +21,23 @@ def image(self):
         return self.shape
 
 def pickPiece():
-    random.randint(1,7)
+    a = random.randint(1,7)
+    if (a == 1):
+        pieceType = lPiece
+    elif (a == 2):
+        pieceType = squarePiece
+    elif (a == 3):
+        pieceType = tPiece
+    elif (a == 4):
+        piecetype = longPiece
+    elif (a == 5):
+        pieceType = reverseSPiece
+    elif (a == 6):
+        piecetype = sPiece
+    elif (a == 7):
+        pieceType = reverseLPiece
+        
+
     
 
 class squarePiece(Piece):
