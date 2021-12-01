@@ -4,44 +4,38 @@ class Piece:
     x = 0
     y = 0
     rotation = 0
-    pieceType = null
+    pieceType = None
+    shape = None
+
+    def image(self):
+        return self.shape
+
+    def pickPiece(self, x, y):
+        a = random.randint(1,7)
+        if (a == 1):
+            self.piece = lPiece(x,y)
+        elif (a == 2):
+            self.piece = squarePiece(x,y)
+        elif (a == 3):
+            self.piece = tPiece(x,y)
+        elif (a == 4):
+            self.piece = longPiece(x,y)
+        elif (a == 5):
+            self.piece = reverseSPiece(x,y)
+        elif (a == 6):
+            self.piece = sPiece(x,y)
+        elif (a == 7):
+            self.piece = reverseLPiece(x,y)
+        return self.piece
 
     def __init__ (self, x, y):
         self.x = x
         self.y = y
         self.rotation = 0
-
-    def __init__ (self, x, y, pieceType):
-        self.x = x
-        self.y = y
-        self.pieceType = pieceType
-        self.rotation = 0
-
-def image(self):
-        return self.shape
-
-def pickPiece():
-    a = random.randint(1,7)
-    if (a == 1):
-        pieceType = lPiece
-    elif (a == 2):
-        pieceType = squarePiece
-    elif (a == 3):
-        pieceType = tPiece
-    elif (a == 4):
-        piecetype = longPiece
-    elif (a == 5):
-        pieceType = reverseSPiece
-    elif (a == 6):
-        piecetype = sPiece
-    elif (a == 7):
-        pieceType = reverseLPiece
-        
-
-    
+        self.piece = self.pickPiece(x,y)
 
 class squarePiece(Piece):
-    shape = [[2, 2, 0, 0], 
+    shapeArray = [[2, 2, 0, 0], 
             [2, 2, 0, 0], 
             [0, 0, 0, 0], 
             [0, 0, 0, 0]]
@@ -60,7 +54,7 @@ class squarePiece(Piece):
         self.pieceType = 1
 
 class tPiece(Piece):  
-    shape = [[[0, 1, 0, 0], 
+    shapeArray = [[[0, 1, 0, 0], 
             [1, 1, 1, 0], 
             [0, 0, 0, 0], 
             [0, 0, 0, 0]], 
@@ -94,7 +88,7 @@ class tPiece(Piece):
         self.pieceType = 2 
 
 class longPiece(Piece):
-    shape = [[[3, 0, 0, 0],
+    shapeArray = [[[3, 0, 0, 0],
             [3, 0, 0, 0],
             [3, 0, 0, 0],
             [3, 0, 0, 0]],
@@ -118,7 +112,7 @@ class longPiece(Piece):
         self.pieceType = 3
 
 class reverseSPiece(Piece):
-    shape = [[[4, 4, 0, 0],
+    shapeArray = [[[4, 4, 0, 0],
             [0, 4, 4, 0],
             [0, 0, 0, 0],
             [0, 0, 0, 0]],
@@ -142,7 +136,7 @@ class reverseSPiece(Piece):
         self.pieceType = 4
 
 class sPiece(Piece):
-    shape = [[[0, 5, 5, 0],
+    shapeArray = [[[0, 5, 5, 0],
             [5, 5, 0, 0],
             [0, 0, 0, 0],
             [0, 0, 0, 0]],
@@ -166,7 +160,7 @@ class sPiece(Piece):
         self.pieceType = 5
 
 class reverseLPiece(Piece):
-    shape = [[[0, 6, 0, 0],
+    shapeArray = [[[0, 6, 0, 0],
             [0, 6, 0, 0],
             [6, 6, 0, 0],
             [0, 0, 0, 0]],
@@ -200,7 +194,7 @@ class reverseLPiece(Piece):
         self.pieceType = 6
 
 class lPiece(Piece):
-    shape = [[[7, 0, 0, 0],
+    shapeArray = [[[7, 0, 0, 0],
         [7, 0, 0, 0],
         [7, 7, 0, 0],
         [0, 0, 0, 0]],

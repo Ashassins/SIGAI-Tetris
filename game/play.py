@@ -75,7 +75,6 @@ while (not done):
                                     game.y + game.zoom * (i + game.piece.y) + 1,
                                     game.zoom - 2, game.zoom - 2])
 
-
     font = pygame.font.SysFont('Calibri', 25, True, False)
     font1 = pygame.font.SysFont('Calibri', 65, True, False)
     text = font.render("Score: " + str(game.score), True, BLACK)

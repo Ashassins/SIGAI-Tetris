@@ -11,7 +11,6 @@ colors = [
     (180, 34, 122),
 ]
 
-
 class Figure:
     x = 0
     y = 0
