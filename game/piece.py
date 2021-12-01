@@ -5,6 +5,8 @@ class Piece:
     y = 0
     rotation = 0
     pieceType = None
+    color = [255, 0, 0]
+    
     shape = [[0, 0, 0, 0], 
             [0, 0, 0, 0], 
             [0, 0, 0, 0], 
@@ -53,8 +55,8 @@ class Piece:
         self.piece = self.pickPiece(x,y)
 
 class squarePiece(Piece):
-    shapeArray = [[2, 2, 0, 0], 
-            [2, 2, 0, 0], 
+    shapeArray = [[1, 1, 0, 0], 
+            [1, 1, 0, 0], 
             [0, 0, 0, 0], 
             [0, 0, 0, 0]]
 
@@ -72,24 +74,24 @@ class squarePiece(Piece):
         self.pieceType = 1
 
 class tPiece(Piece):  
-    shapeArray = [[[0, 1, 0, 0], 
-            [1, 1, 1, 0], 
+    shapeArray = [[[0, 2, 0, 0], 
+            [2, 2, 2, 0], 
             [0, 0, 0, 0], 
             [0, 0, 0, 0]], 
             
-            [[1, 0, 0, 0], 
-            [1, 1, 0, 0],
-            [1, 0, 0, 0],
+            [[2, 0, 0, 0], 
+            [2, 2, 0, 0],
+            [2, 0, 0, 0],
             [0, 0, 0, 0]], 
 
-            [[1, 1, 1, 0],
-            [0, 1, 0, 0], 
+            [[2, 2, 2, 0],
+            [0, 2, 0, 0], 
             [0, 0, 0, 0], 
             [0, 0, 0, 0]], 
             
-            [[0, 1, 0, 0], 
-            [1, 1, 0, 0], 
-            [0, 1, 0, 0],
+            [[0, 2, 0, 0], 
+            [2, 2, 0, 0], 
+            [0, 2, 0, 0],
             [0, 0, 0, 0]]]
 
     color = [120, 22, 139]
@@ -97,10 +99,10 @@ class tPiece(Piece):
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.shape = [[0, 1, 0, 0], 
-                [1, 1, 1, 0], 
-                [0, 0, 0, 0], 
-                [0, 0, 0, 0]]
+        self.shape = [[[0, 2, 0, 0], 
+            [2, 2, 2, 0], 
+            [0, 0, 0, 0], 
+            [0, 0, 0, 0]]]
         self.color = (120, 22, 139) # RGB Code for purple shade
         self.rotation = 0
         self.pieceType = 2 

@@ -195,10 +195,11 @@ while not done:
             for j in range(4):
                 p = i * 4 + j
                 if p in game.figure.image():
+                    print("draw piece")
                     pygame.draw.rect(screen, colors[game.figure.color],
                                      [game.x + game.zoom * (j + game.figure.x) + 1,
                                       game.y + game.zoom * (i + game.figure.y) + 1,
-                                      game.zoom - 2, game.zoom - 2])
+                                    game.zoom - 2, game.zoom - 2])
 
     font = pygame.font.SysFont('Calibri', 25, True, False)
     font1 = pygame.font.SysFont('Calibri', 65, True, False)
