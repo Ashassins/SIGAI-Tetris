@@ -47,6 +47,16 @@ class Piece:
 
     def rotateCounterClockwise(self):
         self.rotation = self.rotation - 1
+        m = self.shape
+        new_matrix = [
+            [m[j][i]
+            for j in range(len(m))
+            ]
+            for i in range(len(m[0]) - 1, -1, -1)
+        ]
+        self.shape = new_matrix
+        return self.shape
+            
 
     def __init__ (self, x, y):
         self.x = x
