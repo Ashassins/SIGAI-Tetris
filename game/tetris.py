@@ -42,13 +42,13 @@ class Tetris:
     def rotateClockwise(self):
         old_rotation = self.piece.shape
         self.piece.rotateClockwise()
-        if self.intersects():
+        if self.checkIntersection():
             self.piece.shape = old_rotation
 
     def rotateCounterClockwise(self):
         old_rotation = self.piece.shape
         self.piece.rotateCounterClockwise()
-        if self.intersects():
+        if self.checkIntersection():
             self.piece.shape = old_rotation
 
     def move_down(self):

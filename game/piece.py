@@ -31,6 +31,21 @@ class Piece:
             self.piece = reverseLPiece(x,y)
         return self.piece
 
+    def rotateClockwise(self):
+        self.rotation = self.rotation + 1
+        N = len(self.shape[0])
+        for i in range (N // 2):
+            for j in range (i, N - i - 1):
+                temp = self.shape[i][j]
+                self.shape[i][j] = self.shape[N - 1 - j][i]
+                self.shape[N - 1 - j][i] = self.shape[N - 1 - i][N - 1 - j]
+                self.shape[N - 1 - i][N - 1 - j] = self.shape[j][N - 1 - i]
+                self.shape[j][N - 1 - i] = temp
+        return self.shape
+
+    def rotateCounterClockwise(self):
+        self.rotation = self.rotation - 1
+
     def __init__ (self, x, y):
         self.x = x
         self.y = y
