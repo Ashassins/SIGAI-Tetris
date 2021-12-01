@@ -5,7 +5,10 @@ class Piece:
     y = 0
     rotation = 0
     pieceType = None
-    shape = None
+    shape = [[0, 0, 0, 0], 
+            [0, 0, 0, 0], 
+            [0, 0, 0, 0], 
+            [0, 0, 0, 0]]
 
     def image(self):
         return self.shape
@@ -81,8 +84,8 @@ class tPiece(Piece):
         self.y = y
         self.shape = [[0, 1, 0, 0], 
                 [1, 1, 1, 0], 
-                    [0, 0, 0, 0], 
-                    [0, 0, 0, 0]]
+                [0, 0, 0, 0], 
+                [0, 0, 0, 0]]
         self.color = (120, 22, 139) # RGB Code for purple shade
         self.rotation = 0
         self.pieceType = 2 
@@ -99,6 +102,9 @@ class longPiece(Piece):
             [0, 0, 0, 0]]]
 
     color = [0, 255, 0]
+
+    def image(self):
+        return self.shape
 
     def __init__ (self, x, y):
         self.x = x
@@ -124,6 +130,9 @@ class reverseSPiece(Piece):
 
     color = [0, 255, 0]
 
+    def image(self):
+        return self.shape
+        
     def __init__ (self, x, y):
         self.x = x
         self.y = y
@@ -148,6 +157,9 @@ class sPiece(Piece):
 
     color = [0, 255, 0]
 
+    def image(self):
+        return self.shape
+        
     def __init__ (self, x, y):
         self.x = x
         self.y = y
@@ -182,6 +194,9 @@ class reverseLPiece(Piece):
 
     color = [0, 255, 0]
 
+    def image(self):
+        return self.shape
+        
     def __init__ (self, x, y):
         self.x = x
         self.y = y
@@ -213,6 +228,12 @@ class lPiece(Piece):
         [7, 7, 7, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0]]]
+
+    color = [0, 255, 0] # CHANGE COLOR
+
+    def image(self):
+        return self.shape
+        
     def __init__(self, x, y):
         super().__init__(x, y)
         self.shape = [[7, 0, 0, 0],

@@ -8,6 +8,7 @@ class Tetris:
     field  = []
     height = 22
     width = 10
+    zoom = 20
     piece = None
 
     def __init__(self, height, width):
@@ -57,7 +58,7 @@ class Tetris:
             self.place() 
     
     def move_sideways(self, dx):
-        old_x = self.piece.old_x
+        old_x = self.piece.x
         self.piece.x += dx
         if self.checkIntersection():
             self.piece.x = old_x
