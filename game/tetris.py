@@ -1,7 +1,8 @@
 import pygame
-
+import piece 
+from piece import Piece
 class Tetris:
-    level = 0
+    level = 2
     score = 0
     state = "start"
     field  = []
@@ -29,11 +30,11 @@ class Tetris:
         intersection = False
         for i in range(4) :
             for j in range(4):
-                if i * 4 + j in self.figure.image():
-                    if i + self.figure.y > self.height - 1 or \
-                        j + self.figure.x > self.width - 1 or \
-                        j + self.figure.x < 0 or \
-                        self.field[i + self.figure.y][j + self.figure.x] > 0:
+                if i * 4 + j in self.piece.image():
+                    if i + self.piece.y > self.height - 1 or \
+                        j + self.piece.x > self.width - 1 or \
+                        j + self.piece.x < 0 or \
+                        self.field[i + self.piece.y][j + self.piece.x] > 0:
                             intersection = True
         return intersection
 
@@ -50,12 +51,12 @@ class Tetris:
             self.piece.shape = old_rotation
 
     def move_down(self):
-        self.shape.y -= 1
+        self.piece.y -= 1
         if self.checkIntersection():
-            self.shape.y += 1
+            self.piece.y += 1
             self.place() 
     
-    def go_side(self, dx):
+    def move_sideways(self, dx):
         old_x = self.piece.old_x
         self.piece.x += dx
         if self.checkIntersection():
