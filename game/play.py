@@ -19,10 +19,13 @@ pygame.display.set_caption("SIGAI Tetris")
 done = False
 clock = pygame.time.Clock()
 fps = 25
+print("marker")
 game = Tetris(20, 10)
 counter = 0
 
 pressing_down = False
+
+screen.fill(WHITE)
 
 while (not done):
     if game.piece is None:
@@ -63,13 +66,14 @@ while (not done):
             pygame.draw.rect(screen, GRAY, [game.width + game.zoom * j, game.height + game.zoom * i, game.zoom, game.zoom], 1)
             if game.field[i][j] > 0:
                 pygame.draw.rect(screen, colors[game.field[i][j]],
-                                 [game.x + game.zoom * j + 1, game.y + game.zoom * i + 1, game.zoom - 2, game.zoom - 1])
+                                 [game.width + game.zoom * j + 1, game.height + game.zoom * i + 1, game.zoom - 2, game.zoom - 1])
 
     if game.piece is not None:
         print("game Figure not none")
+        print(game.piece.image())
         for i in range(4):
             for j in range(4):
-                print(game.piece.image()[i][j])
+                print("piece num ") # + j + "x" + i)
                 if game.piece.image()[i][j] > 0:
                     print("draw piece")
                     pygame.draw.rect(screen, game.piece.color,

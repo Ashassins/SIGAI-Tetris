@@ -25,7 +25,7 @@ class Tetris:
     
     # creating a new piece at 3,0
     def newPiece(self):
-        self.piece = Piece(3, 0) 
+        self.piece = Piece(3, 3) 
 
     def checkIntersection(self):
         intersection = False
@@ -52,9 +52,9 @@ class Tetris:
             self.piece.shape = old_rotation
 
     def move_down(self):
-        self.piece.y -= 1
+        self.piece.y += 1
         if self.checkIntersection():
-            self.piece.y += 1
+            self.piece.y -= 1
             self.place() 
     
     def move_sideways(self, dx):
