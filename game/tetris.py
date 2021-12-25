@@ -6,8 +6,10 @@ class Tetris:
     score = 0
     state = "start"
     field  = []
-    height = 22
-    width = 10
+    height = 0
+    width = 0
+    x = 100
+    y = 60
     zoom = 20
     piece = None
 

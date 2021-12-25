@@ -63,10 +63,10 @@ while (not done):
 
     for i in range(game.height):
         for j in range(game.width):
-            pygame.draw.rect(screen, GRAY, [game.width + game.zoom * j, game.height + game.zoom * i, game.zoom, game.zoom], 1)
+            pygame.draw.rect(screen, GRAY, [game.x + game.zoom * j, game.y + game.zoom * i, game.zoom, game.zoom], 1)
             if game.field[i][j] > 0:
                 pygame.draw.rect(screen, colors[game.field[i][j]],
-                                 [game.width + game.zoom * j + 1, game.height + game.zoom * i + 1, game.zoom - 2, game.zoom - 1])
+                                 [game.x + game.zoom * j + 1, game.y + game.zoom * i + 1, game.zoom - 2, game.zoom - 1])
 
     if game.piece is not None:
         print("game Figure not none")
@@ -77,8 +77,8 @@ while (not done):
                 if game.piece.image()[i][j] > 0:
                     print("draw piece")
                     pygame.draw.rect(screen, game.piece.color,
-                                    [game.width + game.zoom * (j + game.piece.x) + 1,
-                                    game.height + game.zoom * (i + game.piece.y) + 1,
+                                    [game.x + game.zoom * (j + game.piece.x) + 1,
+                                    game.y + game.zoom * (i + game.piece.y) + 1,
                                     game.zoom - 2, game.zoom - 2])
 
     font = pygame.font.SysFont('Calibri', 25, True, False)
