@@ -18,7 +18,7 @@ pygame.display.set_caption("SIGAI Tetris")
 # Loop until the user clicks the close button.
 done = False
 clock = pygame.time.Clock()
-fps = 25
+fps = 10 #25
 print("marker")
 game = Tetris(20, 10)
 counter = 0
@@ -29,7 +29,7 @@ screen.fill(WHITE)
 
 while (not done):
     if game.piece is None:
-        game.newPiece()
+        game.newPiece() # why is this not just outside the while loop?
 
     counter += 1
     if counter > 100000:
@@ -73,9 +73,9 @@ while (not done):
         print(game.piece.image())
         for i in range(4):
             for j in range(4):
-                print("piece num ") # + j + "x" + i)
+                #print("piece num ") # + j + "x" + i)
                 if game.piece.image()[i][j] > 0:
-                    print("draw piece")
+                    #print("draw piece")
                     pygame.draw.rect(screen, game.piece.color,
                                     [game.x + game.zoom * (j + game.piece.x) + 1,
                                     game.y + game.zoom * (i + game.piece.y) + 1,

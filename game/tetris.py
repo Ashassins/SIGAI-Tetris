@@ -13,63 +13,87 @@ class Tetris:
     zoom = 20
     piece = None
 
-    def __init__(self, height, width):
-        self.height = height
-        self.width = width
+    def __init__(self, _height, _width):
+        self.height = _height
+        self.width = _width
         self.field = []
         self.score = 0
         self.state = "start"
-        for i in range(height):
+        for i in range(_height):
             new_line = []
-            for j in range(width):
+            for j in range(_width):
                 new_line.append(0)
             self.field.append(new_line)
     
     # creating a new piece at 3,0
     def newPiece(self):
-        self.piece = Piece(3, 3) 
+        self.piece = Piece(3, 0) 
 
-    def checkIntersection(self):
+    # def intersectingPiece(self):
+    #     intersection = False
+    #     for i in range(4) :
+    #         for j in range(4):
+    #             if self.piece.image()[i][j]:
+    #             # if i * 4 + j in self.piece.image():
+    #             #     if i + self.piece.y > self.height - 1 or \
+    #             #         j + self.piece.x > self.width - 1 or \
+    #             #         j + self.piece.x < 0 or \
+    #             #         self.field[i + self.piece.y][j + self.piece.x] > 0:
+    #             #             intersection = True
+    #     return intersection
+    
+    def inBounds(self):
         intersection = False
         for i in range(4) :
             for j in range(4):
-                if i * 4 + j in self.piece.image():
-                    if i + self.piece.y > self.height - 1 or \
-                        j + self.piece.x > self.width - 1 or \
-                        j + self.piece.x < 0 or \
-                        self.field[i + self.piece.y][j + self.piece.x] > 0:
-                            intersection = True
+                #if self.piece.image()[i][j]:
+                if self.piece.y > 16:
+                    intersection = True
+                    print("there was ")
+                # if i * 4 + j in self.piece.image():
+                #     if i + self.piece.y > self.height - 1 or \
+                #         j + self.piece.x > self.width - 1 or \
+                #         j + self.piece.x < 0 or \
+                #         self.field[i + self.piece.y][j + self.piece.x] > 0:
+                #             print("intersection occurred")
+                #             intersection = True
+        print("intersection")
         return intersection
 
     def rotateClockwise(self):
         old_rotation = self.piece.shape
         self.piece.rotateClockwise()
-        if self.checkIntersection():
+        if self.inBounds(): #self.checkIntersection():
             self.piece.shape = old_rotation
 
     def rotateCounterClockwise(self):
         old_rotation = self.piece.shape
         self.piece.rotateCounterClockwise()
-        if self.checkIntersection():
+        if self.inBounds(): #self.checkIntersection():
             self.piece.shape = old_rotation
 
     def move_down(self):
         self.piece.y += 1
-        if self.checkIntersection():
+        if self.inBounds(): #self.checkIntersection():
+            print("move down, in Bounds")
             self.piece.y -= 1
             self.place() 
     
     def move_sideways(self, dx):
         old_x = self.piece.x
         self.piece.x += dx
-        if self.checkIntersection():
+        if self.inBounds(): #self.checkIntersection():
             self.piece.x = old_x
 
     def place(self):
-        self.break_lines()
-        self.new_figure()
+        for i in range(4):
+            for j in range(4):
+                if i * 4 + j in self.piece.image():
+                    self.field[i + self.piece.y][j + self.piece.x] = self.figure.color
+        #self.break_lines()
+        self.newPiece()
         # timer to check place + gameover
-        if self.checkIntersection():
+        if self.inBounds(): #self.checkIntersection():
             self.state = "gameover"
 
     def break_lines(self):
