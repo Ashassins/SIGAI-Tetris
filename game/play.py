@@ -18,7 +18,7 @@ pygame.display.set_caption("SIGAI Tetris")
 # Loop until the user clicks the close button.
 done = False
 clock = pygame.time.Clock()
-fps = 10 #25
+fps = 5 #25
 print("marker")
 game = Tetris(20, 10)
 counter = 0
@@ -26,6 +26,7 @@ counter = 0
 pressing_down = False
 
 screen.fill(WHITE)
+
 
 while (not done):
     if game.piece is None:
@@ -66,7 +67,7 @@ while (not done):
             pygame.draw.rect(screen, GRAY, [game.x + game.zoom * j, game.y + game.zoom * i, game.zoom, game.zoom], 1)
             if game.field[i][j] > 0:
                 pygame.draw.rect(screen, colors[game.field[i][j]],
-                                 [game.x + game.zoom * j + 1, game.y + game.zoom * i + 1, game.zoom - 2, game.zoom - 1])
+                                [game.x + game.zoom * j + 1, game.y + game.zoom * i + 1, game.zoom - 2, game.zoom - 1])
 
     if game.piece is not None:
         print("game Figure not none")
@@ -77,6 +78,11 @@ while (not done):
                 if game.piece.image()[i][j] > 0:
                     #print("draw piece")
                     pygame.draw.rect(screen, game.piece.color,
+                                    [game.x + game.zoom * (j + game.piece.x) + 1,
+                                    game.y + game.zoom * (i + game.piece.y) + 1,
+                                    game.zoom - 2, game.zoom - 2])
+                else:
+                    pygame.draw.rect(screen, BLACK,
                                     [game.x + game.zoom * (j + game.piece.x) + 1,
                                     game.y + game.zoom * (i + game.piece.y) + 1,
                                     game.zoom - 2, game.zoom - 2])
@@ -94,5 +100,6 @@ while (not done):
 
     pygame.display.flip()
     clock.tick(fps)
+
 
 pygame.quit()

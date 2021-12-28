@@ -42,14 +42,21 @@ class Tetris:
     #             #             intersection = True
     #     return intersection
     
-    def inBounds(self):
+    def notInBounds(self):
         intersection = False
         for i in range(4) :
             for j in range(4):
-                #if self.piece.image()[i][j]:
-                if self.piece.y > 16:
-                    intersection = True
-                    print("there was ")
+                if self.piece.image()[i][j]:
+                    if self.piece.y > 16:
+                        print("there was intersection")
+                        intersection = True
+                    elif self.piece.image()[i][j] and self.field[self.piece.y + i][self.piece.x + j]:
+                        print("there was intersection")
+                        intersection = True
+                else:
+                    print("no intersection")
+                # if self.piece.y > 16:
+                #     intersection = True
                 # if i * 4 + j in self.piece.image():
                 #     if i + self.piece.y > self.height - 1 or \
                 #         j + self.piece.x > self.width - 1 or \
@@ -57,43 +64,43 @@ class Tetris:
                 #         self.field[i + self.piece.y][j + self.piece.x] > 0:
                 #             print("intersection occurred")
                 #             intersection = True
-        print("intersection")
         return intersection
 
     def rotateClockwise(self):
         old_rotation = self.piece.shape
         self.piece.rotateClockwise()
-        if self.inBounds(): #self.checkIntersection():
+        if self.notInBounds(): #self.checkIntersection():
             self.piece.shape = old_rotation
 
     def rotateCounterClockwise(self):
         old_rotation = self.piece.shape
         self.piece.rotateCounterClockwise()
-        if self.inBounds(): #self.checkIntersection():
+        if self.notInBounds(): #self.checkIntersection():
             self.piece.shape = old_rotation
 
     def move_down(self):
         self.piece.y += 1
-        if self.inBounds(): #self.checkIntersection():
-            print("move down, in Bounds")
+        if self.notInBounds(): #self.checkIntersection():
+            print("move down, not in Bounds")
             self.piece.y -= 1
             self.place() 
     
     def move_sideways(self, dx):
         old_x = self.piece.x
         self.piece.x += dx
-        if self.inBounds(): #self.checkIntersection():
+        if self.notInBounds(): #self.checkIntersection():
             self.piece.x = old_x
 
     def place(self):
         for i in range(4):
             for j in range(4):
-                if i * 4 + j in self.piece.image():
-                    self.field[i + self.piece.y][j + self.piece.x] = self.figure.color
+                if self.piece.image()[i][j]:
+                    self.field[i + self.piece.y][j + self.piece.x] &= self.piece.image()[i][j]
+                    
         #self.break_lines()
         self.newPiece()
         # timer to check place + gameover
-        if self.inBounds(): #self.checkIntersection():
+        if self.notInBounds(): #self.checkIntersection():
             self.state = "gameover"
 
     def break_lines(self):
