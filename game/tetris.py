@@ -96,7 +96,10 @@ class Tetris:
             for j in range(4):
                 if self.piece.image()[i][j]:
                     self.field[i + self.piece.y][j + self.piece.x] &= self.piece.image()[i][j]
-                    
+                    # pygame.draw.rect(screen, game.piece.color,
+                    #                 [game.x + game.zoom * (j + game.piece.x) + 1,
+                    #                 game.y + game.zoom * (i + game.piece.y) + 1,
+                    #                 game.zoom - 2, game.zoom - 2])
         #self.break_lines()
         self.newPiece()
         # timer to check place + gameover

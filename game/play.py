@@ -1,6 +1,5 @@
 import pygame
 import random
-import tetris
 from tetris import Tetris
 import piece
 
